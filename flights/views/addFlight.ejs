@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Flight</title>
+</head>
+<body>
+    <%- include partials/nav.ejs %>
+    <h1>Add A New Flight:</h1>
+
+    <form action="/new" method="POST">
+        <label for="name">Airline Name</label>
+        <input type="text" name="name" id="name" placeholder="AirlineName">
+
+        <label for="Airport">Airport Name</label>
+        <!--<input type="text" name="Airport" id="Airport" placeholder="Airport name">-->
+        <select name="airport"> <option value="DEN" selected> Denver</option>
+        <option value="AUS">AUS</option>
+        <option value="DFW">DFW</option>
+        <option value="LAX">LAX</option>
+        <option value="SAN">SAN</option>
+        </select>
+
+        <label for="flightNo">Flight Number:</label>
+        <input type="text" name="flightNo" id="flightNo" placeholder="flightNo">
+
+        <label for="Date">Departure (Unit)</label>
+        <input type="datetime-local" id="Date" name="Date" placeholder="Date">
+        <label for="category">Select Category</label>
+    
+        <button>Sumbit ✈️🛫</button>
+       </form>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show View For Flight Number:   </title>
+</head>
+<body>
+
+    <%- include partials/nav.ejs %>
+    <h1>Show View For Flight Number:</h1>
+
+
+
+        <section>
+       
+        
+          <h3>Airline:  </h3> <%= flight.airline %>
+        <h3>Airport</h3><%= flight.airport %>
+        <h3>Flight no </h3><%= flight.flightNo %>
+        <h3>Departure Date/time </h3><%= flight.departs %>
+        <h3>Destinations</h3> 
+        <br>
+        <br>
+    
+        <% flight.destinations.forEach((element) => { %>
+         <ol>
+
+          
+
+        
+          <%=element.airport %> 
+          <%=element.arrival%> 
+            
+
+        </ol>
+        <% }) %>
+      </li>
+    </section> 
+    
+  
+
+    <h1>Add additional Destinations</h1>
+    enum: ['AUS', 'DFW', 'DEN', 'LAX' , 'SAN']
+    <form action="/show<%=req.params.id  %> " method="POST">
+        <label for="airport">Airport Name</label>
+        <input type="text" name="airport" id="airport" placeholder="Airport Name">
+
+        <label for="Date">Arrival</label>
+        <input type="datetime-local" id="Date" name="Date" placeholder="Date">
+        <button>Submit New Destinations</button>
+    </form>
+
+<br>
+    <form action="/show/tickets/<%= req.params.id  %> " method="POST">
+        <label for="seat">Seat</label>
+    <input name="seat" required pattern="[A-F][1-9]\d?">
+    <button>Create a Ticket</button>
+    <br>
+    <br>
+<br>
+    ----------------------------------------------------------
+
+    <section>
+<table>
+   All Tickets for this flight:
+
+   <% flight.tickets.forEach((element) => { %>
+    <ol>
+
+     
+       
+   <tr>
+     <%=element.seat %>
+       
+    </tr>
+   </ol>
+   <% }) %>
+
+</table>
+
+</section>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List of All Flights:</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include partials/nav.ejs %>
+    <h1>List of All Flights:</h1> 
+    <ol>
+    <% flights.forEach( (flights) => {  %> 
+    <section>
+   <li>
+    
+      <h3>Airline:  </h3> <%= flights.airline %>
+    <h3>Airport</h3><%= flights.airport %>
+    <h3>Flight no </h3><%= flights.flightNo %>
+    <h3>Departure Date/time </h3><%= flights.departs %>
+    <br>
+    <br>
+  <a href="/show<%= flights.id  %>">Details</a>
+  </li>
+</section> 
+   <% }); %> 
+  </ol>
+  </body>
+</html>
